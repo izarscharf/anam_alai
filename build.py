@@ -89,17 +89,23 @@ def build_cv():
 
 
 def build_news():
-    # "date | title | publication | link | optional summary", newest first, # = comment
+    # news/<name>.txt: "key: value" lines (date, title, source, link), a blank line, then the text.
+    # An image with the same name is the thumbnail. Newest first = filenames sorted descending.
+    folder = ROOT / "news"
+    if not folder.is_dir():
+        return []
     news = []
-    for line in read_text(ROOT / "news.txt").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        parts = [p.strip() for p in line.split("|", 4)]
-        if len(parts) < 4:
-            print(f"warning: news.txt line needs date | title | publication | link: {line}", file=sys.stderr)
-            continue
-        news.append(dict(zip(("date", "title", "source", "url", "summary"), parts + [""])))
+    for txt in sorted(folder.glob("*.txt"), reverse=True):
+        header, _, text = read_text(txt).partition("\n\n")
+        item = {"date": "", "title": "", "source": "", "link": "", "text": text.strip(), "image": ""}
+        for line in header.splitlines():
+            key, sep, value = line.partition(":")
+            if sep and key.strip().lower() in item:
+                item[key.strip().lower()] = value.strip()
+        image = next((i for i in sorted(folder.glob(txt.stem + ".*")) if is_image(i)), None)
+        if image:
+            item["image"] = image.relative_to(ROOT).as_posix()
+        news.append(item)
     return news
 
 

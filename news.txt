@@ -1,4 +1,0 @@
-# News articles, newest first. One per line:
-#   date | title | publication | link | short summary (optional)
-# Lines starting with # are ignored. The News section stays hidden until there is at least one entry.
-2014 | Sophie Scholl – eine Ikone des Widerstands | Einsichten und Perspektiven 2/2014, p. 87 | https://www.weisse-rose-stiftung.de/wp-content/uploads/pdf/Einsichten_Perspektiven_2-2014_Web.pdf#page=11 | Hildegard Kronawitter's article on Sophie Scholl features the painting “Mut” (2011/2012) from the art project “Das Erbe der Weißen Rose – Mobile Kunst im Münchner Raum”, created by upper-school students of the Willi-Graf-Gymnasium and shown as a mobile installation in the Munich U-Bahn. The project was led by Uta Schärf, who also took the photograph.

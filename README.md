@@ -25,8 +25,17 @@ projects/
 - **CV:** edit `cv.txt`. `# Heading` starts a section; each entry is `year`, then a tab
   (or two spaces), then the text, e.g. `2019	Solo show, Gallery X, Berlin`. A line with no
   year is fine too. Sections with no entries are hidden until filled in.
-- **News:** add one line per article to `news.txt`, newest first:
-  `March 2025 | Article title | Publication | https://link-to-article | Optional short summary`.
+- **News:** one `.txt` file per article in `news/`, plus an optional image with the same
+  name as the thumbnail (e.g. `news/2014-weisse-rose-mut.txt` + `.jpg`). Start the file name
+  with the year so the newest sorts first. File format:
+  ```
+  date: 2014
+  title: Article title
+  source: Publication, page
+  link: https://link-to-article
+
+  Text shown under the thumbnail (after one blank line).
+  ```
   The News section and menu link appear once there is at least one entry.
 - Resize photos before uploading (≈2500px on the long side is plenty) to keep the site fast.
 

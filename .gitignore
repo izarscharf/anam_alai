@@ -15,3 +15,7 @@ desktop.ini
 
 # Local assistant instructions
 CLAUDE.md
+
+# Saved web pages (full copies of third-party articles)
+news/*.html
+news/*_files/

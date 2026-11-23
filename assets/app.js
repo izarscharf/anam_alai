@@ -99,14 +99,27 @@ function renderHome(m) {
 
   const newsList = document.getElementById("news-list");
   m.news.forEach((n) => {
-    const a = el("a", "news-item");
-    a.href = n.url;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.append(el("span", "news-date", n.date), el("span", "news-title", n.title), el("span", "news-source", n.source));
-    if (n.summary) a.append(el("span", "news-summary", n.summary));
+    const card = el(n.link ? "a" : "div", "news-card");
+    if (n.link) {
+      card.href = n.link;
+      card.target = "_blank";
+      card.rel = "noopener";
+    }
+    if (n.image) {
+      const img = el("img");
+      img.src = url(n.image);
+      img.alt = n.title;
+      img.loading = "lazy";
+      card.append(img);
+    }
+    card.append(
+      el("div", "news-meta", [n.date, n.source].filter(Boolean).join(" · ")),
+      el("div", "news-title", n.title),
+      el("p", "news-text", n.text)
+    );
+    if (!n.link) card.querySelector(".news-title").classList.add("no-link");
     const li = el("li");
-    li.append(a);
+    li.append(card);
     newsList.append(li);
   });
   document.getElementById("news").hidden = !m.news.length;

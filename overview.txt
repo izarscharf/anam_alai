@@ -1,0 +1,7 @@
+# Images shown in the swipeable overview on the home page, in this order.
+# One path per line, relative to the projects/ folder. Lines starting with # are ignored.
+01-night-walks/01.jpg
+02-still-water/02.jpg
+03-studies/01.jpg
+01-night-walks/03.jpg
+02-still-water/01.jpg

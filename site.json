@@ -1,0 +1,8 @@
+{
+  "name": "anam alai",
+  "tagline": "Uta Schärf · born 1972, Pretoria, South Africa",
+  "email": "hello@example.com",
+  "links": [
+    { "label": "Instagram", "url": "https://instagram.com/" }
+  ]
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="project">
+  <header class="site-header">
+    <a class="brand" href="./" data-site-name></a>
+    <nav>
+      <a href="./#work">Work</a>
+      <a href="./#projects">Projects</a>
+      <a href="./#news">News</a>
+      <a href="./#about">About</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <a class="back" href="./#projects">← All projects</a>
+    <h1 class="project-title" id="project-title"></h1>
+    <div class="project-description" id="project-description"></div>
+    <div class="gallery" id="gallery"></div>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <div class="carousel" id="lightbox-carousel"></div>
+  </div>
+
+  <footer class="site-footer">© <span id="year"></span> <span data-site-name></span></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

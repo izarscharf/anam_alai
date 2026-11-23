@@ -1,0 +1,3 @@
+Replace this text with the artist's bio. Separate paragraphs with a blank line.
+
+Second paragraph: background, exhibitions, current work, representation.

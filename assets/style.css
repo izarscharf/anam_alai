@@ -222,8 +222,8 @@ figure { margin: 0; }
 .cv { max-width: 860px; }
 .cv-section { padding: 32px 0; border-top: 1px solid var(--line); }
 .cv-section .section-title { margin-bottom: 20px; }
-.cv-list { display: grid; grid-template-columns: 7ch 1fr; gap: 10px 32px; margin: 0; }
-.cv-list dt { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cv-list { display: grid; grid-template-columns: 8ch 1fr; gap: 10px 32px; margin: 0; }
+.cv-list dt { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .cv-list dd { margin: 0; }
 
 /* Lightbox */

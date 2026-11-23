@@ -5,13 +5,15 @@
   --text: #ededed;
   --muted: #8a8a8a;
   --gutter: clamp(16px, 4vw, 56px);
-  --header-h: 64px;
+  --header-h: clamp(76px, 6vw, 128px);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+/* Base text size grows with screen width: 16px on phones/laptops, up to 20px on large monitors.
+   All rem-based sizes scale with it. */
+html { font-size: clamp(16px, calc(10px + 0.55vw), 20px); scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 
 body {
   margin: 0;
@@ -43,7 +45,9 @@ figure { margin: 0; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.brand { font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand { display: flex; flex-direction: column; white-space: nowrap; }
+.brand-name { font-size: clamp(1.6rem, 2.4vw, 2.6rem); font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+.brand-sub { margin-top: 4px; font-size: 0.95rem; color: var(--muted); line-height: 1.3; }
 .site-header nav { display: flex; gap: clamp(16px, 3vw, 36px); }
 .site-header nav a,
 .section-title,
@@ -51,7 +55,7 @@ figure { margin: 0; }
 .carousel-counter,
 .project-count,
 .slide-project {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -174,6 +178,8 @@ figure { margin: 0; }
 .news-text { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; white-space: pre-line; }
 @media (max-width: 480px) {
   .brand { flex-shrink: 0; }
+  .brand-name { font-size: 1.35rem; }
+  .brand-sub { font-size: 0.75rem; margin-top: 2px; }
   .site-header nav { gap: 12px; }
   .site-header nav a { font-size: 0.64rem; letter-spacing: 0.08em; }
 }

@@ -62,6 +62,7 @@ function fillSite(site) {
   if (site.name) document.title = document.body.dataset.page === "home" ? site.name : `${document.title} — ${site.name}`;
   document.querySelectorAll("[data-site-name]").forEach((e) => (e.textContent = site.name || ""));
   document.querySelectorAll("[data-site-tagline]").forEach((e) => (e.textContent = site.tagline || ""));
+  document.querySelectorAll("[data-site-realname]").forEach((e) => (e.textContent = site.realName || ""));
   document.getElementById("year").textContent = new Date().getFullYear();
 }
 

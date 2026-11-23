@@ -23,8 +23,11 @@ def is_image(p):
 
 def title_from_folder(name):
     # "01-night-walks" -> "Night Walks" (leading number only sets the order)
+    # "1995-plateau"   -> "Plateau - 1995" (a leading year is moved to the end)
+    year = re.match(r"^(\d{4})[-_ ]+", name)
     name = re.sub(r"^\d+[-_ ]+", "", name)
-    return " ".join(w.capitalize() for w in re.split(r"[-_ ]+", name) if w)
+    title = " ".join(w.capitalize() for w in re.split(r"[-_ ]+", name) if w)
+    return f"{title} - {year.group(1)}" if year else title
 
 
 def image_entry(img):

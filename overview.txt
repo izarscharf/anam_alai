@@ -1,3 +1,3 @@
 # Images shown in the swipeable overview on the home page, in this order.
 # One path per line, relative to the projects/ folder. Lines starting with # are ignored.
-02-prints/01.jpg
+2026-Cyanotype-Composite/01.jpg

@@ -17,22 +17,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Separate build and deploy jobs (GitHub's recommended layout): the deploy job
+  # only starts once the upload has fully finished, so it reliably finds it.
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact: ${{ steps.name.outputs.artifact }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 build.py
+      - uses: actions/configure-pages@v5
+      # Name includes the attempt number so "Re-run all jobs" doesn't create
+      # two artifacts with the same name.
+      - id: name
+        run: echo "artifact=github-pages-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+          name: ${{ steps.name.outputs.artifact }}
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - run: python3 build.py
-      - uses: actions/configure-pages@v5
-      # Artifact name includes the attempt number so "Re-run jobs" doesn't
-      # find two artifacts with the same name and fail.
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-          name: github-pages-${{ github.run_attempt }}
       - id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: github-pages-${{ github.run_attempt }}
+          artifact_name: ${{ needs.build.outputs.artifact }}

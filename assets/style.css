@@ -234,6 +234,20 @@ figure { margin: 0; }
 .cv-list dt { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .cv-list dd { margin: 0; }
 
+/* Art Education */
+.edu { max-width: 860px; margin-top: 48px; }
+.edu-item { display: grid; grid-template-columns: 10ch 1fr; gap: 8px 32px; padding: 28px 0; border-top: 1px solid var(--line); }
+.edu-year { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.edu-title { margin: 0; font-size: 1.1rem; font-weight: 400; line-height: 1.4; }
+.edu-item p { margin: 10px 0 0; color: var(--muted); max-width: 68ch; }
+@media (max-width: 600px) {
+  .edu-item { grid-template-columns: 1fr; }
+  /* Phones: menu on its own row under the name so all items fit */
+  :root { --header-h: 104px; }
+  .site-header { flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; }
+  .site-header nav { flex-wrap: wrap; gap: 6px 14px; }
+}
+
 /* Lightbox */
 .lightbox {
   position: fixed;

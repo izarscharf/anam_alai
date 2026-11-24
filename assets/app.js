@@ -211,12 +211,24 @@ function renderCV(m) {
   });
 }
 
+function renderEducation(m) {
+  const root = document.getElementById("education");
+  m.education.forEach((p) => {
+    const item = el("article", "edu-item");
+    const body = el("div");
+    body.append(el("h2", "edu-title", p.title));
+    p.text.split(/\n\s*\n/).filter(Boolean).forEach((para) => body.append(el("p", null, para)));
+    item.append(el("div", "edu-year", p.year), body);
+    root.append(item);
+  });
+}
+
 fetch("manifest.json", { cache: "no-cache" })
   .then((r) => r.json())
   .then((m) => {
     fillSite(m.site);
     toggleNewsLinks(m.news);
-    ({ home: renderHome, project: renderProject, cv: renderCV })[document.body.dataset.page](m);
+    ({ home: renderHome, project: renderProject, cv: renderCV, education: renderEducation })[document.body.dataset.page](m);
     // Content renders after load, so re-apply a #section jump (e.g. ./#about from a project page).
     if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
   })

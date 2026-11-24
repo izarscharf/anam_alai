@@ -91,6 +91,20 @@ def build_cv():
     return [s for s in sections if s["entries"]]
 
 
+def build_education():
+    # "## year | title" starts a project; following lines are its description. "# ..." = comment.
+    projects = []
+    for line in read_text(ROOT / "art-education.txt").splitlines():
+        if line.startswith("## "):
+            year, _, title = line[3:].partition("|")
+            projects.append({"year": year.strip(), "title": title.strip(), "text": ""})
+        elif projects and not line.startswith("#"):
+            projects[-1]["text"] += line + "\n"
+    for p in projects:
+        p["text"] = p["text"].strip()
+    return projects
+
+
 def build_news():
     # news/<name>.txt: "key: value" lines (date, title, source, link), a blank line, then the text.
     # An image with the same name is the thumbnail. Newest first = filenames sorted descending.
@@ -119,6 +133,7 @@ def main():
         "about": build_about(),
         "cv": build_cv(),
         "news": build_news(),
+        "education": build_education(),
         "overview": build_overview(projects),
         "projects": projects,
     }

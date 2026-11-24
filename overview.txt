@@ -1,7 +1,10 @@
 # Images shown in the swipeable overview on the home page, in this order.
 # One path per line, relative to the projects/ folder. Lines starting with # are ignored.
+Twisted-Installation/01.jpeg
 2026-Cyanotype-Composite/01.jpg
+Walking-on-coals/02.jpeg
 1997-Laureaten/Laureaten.jpeg
+Silent-Table/silent_table.jpeg
 1997-Houses-of-Being/Object-Reader.jpeg
 2025-Traces-of-Memory/Bridges documentary black and white.jpeg
 1998-Mnemosyne/01.jpeg

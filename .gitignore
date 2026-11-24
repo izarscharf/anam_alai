@@ -19,3 +19,11 @@ CLAUDE.md
 # Saved web pages (full copies of third-party articles)
 news/*.html
 news/*_files/
+
+# Original TIFF scans (too large for GitHub; convert to PNG/JPG for the site)
+*.tif
+*.tiff
+
+# Private documents (e.g. full CV with address and phone) and LibreOffice lock files
+*.docx
+.~lock.*
